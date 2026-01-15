@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="content-type" charset="UTF-8">
+		<title> 駅一覧</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+		<style>
+			.time_table
+			{  
+				font-family: "Noto Sans JP", sans-serif;
+				font-size: 25px;
+			}
+
+			.TT_menu
+			{
+				position:fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				font-size: 30px;
+				height: 70px;
+				z-index:999;
+				background-color:#ffffff; 
+			}
+
+			.TT_menu_space
+			{
+				height: 70px;
+			}
+
+			.time_index
+			{  
+  				font-size: 20px;
+				width: 600px;
+				height: 50px;
+				font-weight: bold;
+				color: #000000;
+				background-color: #eeeeee;
+				padding: 0px 7px;
+			}
+
+			.table_base
+			{
+				width: 100%; 
+				border-collapse: collapse;
+			}
+
+			.time
+			{  
+				font-size: 30px;
+				height: 70px;
+				width: 120px;
+				padding: 0px 20px;
+				border-bottom: 2px solid #b4b4b4;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="TT_menu">
+			<a href="">戻る</a>
+		</div>
+		<div class="TT_menu_space"></div>
+		<div class="time_table">
+			<table class="table_base">
+				<tr class="time_index">
+					<td>
+						
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_0&dia=0">花川北</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_1&dia=0">花川東</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_2&dia=0">緑苑台</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_3&dia=0">東茨戸</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_4&dia=0">茨戸</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_5&dia=0">篠路</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_6&dia=0">西百合が原</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_7&dia=0">烈々布</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_8&dia=0">新港中央</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_9&dia=0">新港西</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_10&dia=0">南線</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_11&dia=0">花川中央</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_12&dia=0">紅南</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_13&dia=0">屯田北</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_14&dia=0">屯田西公園</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_15&dia=0">屯田</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_16&dia=0">太平</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_17&dia=0">烈々布</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_18&dia=0">栄町</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_19&dia=0">丘珠空港</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_20&dia=0">丘珠</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_21&dia=0">東苗穂</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_22&dia=0">烈々布</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_23&dia=0">南烈々布</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_24&dia=0">北栄(白)</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_25&dia=0">西元町</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_26&dia=0">新元町</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_27&dia=0">東苗穂</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_28&dia=0">東丘珠</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_29&dia=0">豊畑</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_30&dia=0">南中沼</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_31&dia=0">南烈々布</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_32&dia=0">北栄(茨)</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_33&dia=0">美香保</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_34&dia=0">北光</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_35&dia=0">新光星</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_36&dia=0">札幌</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_37&dia=0">東苗穂</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_38&dia=0">伏古</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_39&dia=0">新苗穂</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_40&dia=0">光星</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_41&dia=0">札幌</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_42&dia=0">大通</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_43&dia=0">すすきの</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_44&dia=0">中島公園</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_45&dia=0">行啓通</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_46&dia=0">山鼻</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_47&dia=0">旭ヶ丘</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_48&dia=0">西線</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_49&dia=0">山鼻</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_50&dia=0">藻岩下</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_51&dia=0">真駒内上町</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_52&dia=0">真駒内柏丘</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_53&dia=0">藻南公園</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_54&dia=0">南沢</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_55&dia=0">石山</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_56&dia=0">穴の川</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_57&dia=0">藤の沢</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_58&dia=0">藤野中央</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_59&dia=0">下藤野</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_60&dia=0">簾舞</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_61&dia=0">簾舞四区</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_62&dia=0">豊滝</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_63&dia=0">小金湯</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_64&dia=0">錦橋</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_65&dia=0">温泉西</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_66&dia=0">定山渓</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_67&dia=0">七区</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_68&dia=0">豊平峡</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_69&dia=0">山鼻</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_70&dia=0">南中の島</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_71&dia=0">平岸中央</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_72&dia=0">月寒公園</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_73&dia=0">月寒北</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_74&dia=0">南郷</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_75&dia=0">本通</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_76&dia=0">西白石</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_77&dia=0">菊水元町</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_78&dia=0">米里</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_79&dia=0">南中沼</a>
+					</td>
+				</tr>
+				<tr class="time">
+					<td>
+						<a href="rd.html?sel=STTS_80&dia=0">中沼</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
+					</td>
+				</tr>
+			</table>	
+		</div>
+	<br>この時刻表はOuOrario V001.002を使用して生成しています。<a href="https://surugaexpress.web.fc2.com/X7_freeSoft/ouorario/ouorario.html">詳細</a></body>
+</html>

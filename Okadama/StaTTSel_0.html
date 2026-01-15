@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="content-type" charset="UTF-8">
+		<title> 駅時刻表選択</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+		<style>
+			.time_table
+			{  
+				font-family: "Noto Sans JP", sans-serif;  
+  				font-size: 25px;
+				display:none;
+			}
+
+			.station_name
+			{  
+				font-size: 45px; 
+				padding: 0px 7px;
+				height: 80px;
+				font-weight: bold;
+			}
+
+			.table_base
+			{
+				width: 100%; 
+				border-collapse: collapse;
+			}
+
+			.time_index
+			{  
+  				font-size: 20px;
+				width: 600px;
+				height: 50px;
+				font-weight: bold;
+				color: #000000;
+				background-color: #eeeeee;
+				padding: 0px 7px;
+			}
+			.time
+			{  
+				font-size: 30px;
+				height: 70px;
+				width: 120px;
+				padding: 0px 20px;
+				border-bottom: 2px solid #b4b4b4;
+			}
+
+			.TT_menu
+			{
+				position:fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				font-size: 30px;
+				height: 70px;
+				z-index:999;
+				background-color:#ffffff; 
+			}
+
+			.TT_menu_space
+			{
+				height: 70px;
+			}
+
+			.custom-link 
+			{
+            color: #000000;
+            text-decoration: none;
+        	}
+		</style>
+		<link rel="stylesheet" type="text/css" href="common.css">
+		<script>
+
+			function ShowTable()
+			{
+				// URLのクエリパラメータを取得
+				const urlParams = new URLSearchParams(window.location.search);
+
+				// リンクにパラメータ付与
+				const dia = urlParams.get("dia");
+				const links = document.querySelectorAll('a');
+				links.forEach(link => {
+					// 既存のURLを取得
+					const url = new URL(link.href);
+
+					// パラメータを追加
+					url.searchParams.append("dia", dia);
+
+					// 更新したURLをリンクに設定
+					link.href = url.toString();
+				});
+
+				// 引数を取得
+				const select = urlParams.get("sel");
+
+				// 表示
+				document.getElementById(select).style.display="block";
+			}
+		</script>
+	</head>
+	<body onload='ShowTable()'>
+		<div class="TT_menu">
+			<a href="TTIndex.html">駅一覧に戻る</a>
+		</div>
+		<div class="TT_menu_space"></div>
+		<div id="0" class="time_table">
+			<div class="station_name">花川北</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_0_down">石山・藻南公園方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="1" class="time_table">
+			<div class="station_name">花川東</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_1_down">石山・藻南公園方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_1_up">花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="2" class="time_table">
+			<div class="station_name">緑苑台</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_2_down">石山・簾舞四区方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_2_up">花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="3" class="time_table">
+			<div class="station_name">東茨戸</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_3_down">石山・簾舞四区方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_3_up">花川北・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="4" class="time_table">
+			<div class="station_name">茨戸</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_4_down">すすきの・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_4_up">花川北・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="5" class="time_table">
+			<div class="station_name">篠路</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_5_down">すすきの・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_5_up">茨戸・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="6" class="time_table">
+			<div class="station_name">西百合が原</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_6_down">すすきの・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_6_up">茨戸・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="8" class="time_table">
+			<div class="station_name">新港中央</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_8_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="9" class="time_table">
+			<div class="station_name">新港西</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_9_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_9_up">新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="10" class="time_table">
+			<div class="station_name">南線</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_10_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_10_up">新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="11" class="time_table">
+			<div class="station_name">花川中央</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_11_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_11_up">新港中央・南線方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="12" class="time_table">
+			<div class="station_name">紅南</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_12_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_12_up">花川中央・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="13" class="time_table">
+			<div class="station_name">屯田北</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_13_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_13_up">花川中央・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="14" class="time_table">
+			<div class="station_name">屯田西公園</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_14_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_14_up">花川中央・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="15" class="time_table">
+			<div class="station_name">屯田</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_15_down">すすきの・中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_15_up">花川中央・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="16" class="time_table">
+			<div class="station_name">太平</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_16_down">すすきの・中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_16_up">屯田・花川中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="17" class="time_table">
+			<div class="station_name">烈々布</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_17_down">すすきの・中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_22_down">すすきの・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_7_up">茨戸・花川北方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_17_up">屯田・花川中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="18" class="time_table">
+			<div class="station_name">栄町</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_18_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_18_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="19" class="time_table">
+			<div class="station_name">丘珠空港</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_19_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_19_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="20" class="time_table">
+			<div class="station_name">丘珠</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_20_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_20_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="23" class="time_table">
+			<div class="station_name">南烈々布</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_23_down">すすきの・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_31_down">すすきの・簾舞四区方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_23_up">屯田・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="24" class="time_table">
+			<div class="station_name">北栄(白)</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_24_down">南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_24_up">南烈々布・南線方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="25" class="time_table">
+			<div class="station_name">西元町</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_25_down">南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_25_up">南烈々布・南線方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="26" class="time_table">
+			<div class="station_name">新元町</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_26_down">南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_26_up">南烈々布・南線方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="27" class="time_table">
+			<div class="station_name">東苗穂</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_27_down">南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_37_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_21_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_27_up">南烈々布・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="28" class="time_table">
+			<div class="station_name">東丘珠</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_28_down">南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_28_up">南烈々布・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="29" class="time_table">
+			<div class="station_name">豊畑</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_29_down">南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_29_up">南烈々布・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="32" class="time_table">
+			<div class="station_name">北栄(茨)</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_32_down">すすきの・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_32_up">屯田・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="33" class="time_table">
+			<div class="station_name">美香保</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_33_down">すすきの・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_33_up">屯田・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="34" class="time_table">
+			<div class="station_name">北光</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_34_down">すすきの・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_34_up">屯田・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="35" class="time_table">
+			<div class="station_name">新光星</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_35_down">すすきの・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_35_up">屯田・茨戸方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="38" class="time_table">
+			<div class="station_name">伏古</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_38_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_38_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="39" class="time_table">
+			<div class="station_name">新苗穂</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_39_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_39_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="40" class="time_table">
+			<div class="station_name">光星</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_40_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_40_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="41" class="time_table">
+			<div class="station_name">札幌</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_41_down">すすきの・中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_36_up">屯田・茨戸方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_41_up">屯田・花川中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="42" class="time_table">
+			<div class="station_name">大通</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_42_down">すすきの・中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_42_up">屯田・花川中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="43" class="time_table">
+			<div class="station_name">すすきの</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_43_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_43_up">屯田・花川中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="44" class="time_table">
+			<div class="station_name">中島公園</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_44_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_44_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="45" class="time_table">
+			<div class="station_name">行啓通</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_45_down">中沼・石山方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_45_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="47" class="time_table">
+			<div class="station_name">旭ヶ丘</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_47_down">山鼻・藻南公園方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="48" class="time_table">
+			<div class="station_name">西線</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_48_down">山鼻・藻南公園方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_48_up">旭ヶ丘方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="49" class="time_table">
+			<div class="station_name">山鼻</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_49_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_69_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_46_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_49_up">花川中央・花川北方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="50" class="time_table">
+			<div class="station_name">藻岩下</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_50_down">石山・藻南公園方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_50_up">花川北・栄町方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="51" class="time_table">
+			<div class="station_name">真駒内上町</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_51_down">石山・藻南公園方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_51_up">花川北・栄町方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="52" class="time_table">
+			<div class="station_name">真駒内柏丘</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_52_down">石山・藻南公園方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_52_up">花川北・栄町方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="53" class="time_table">
+			<div class="station_name">藻南公園</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_53_down">石山・簾舞四区方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_53_up">花川北・栄町方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="54" class="time_table">
+			<div class="station_name">南沢</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_54_down">石山・簾舞四区方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_54_up">緑苑台・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="55" class="time_table">
+			<div class="station_name">石山</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_55_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_55_up">緑苑台・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="56" class="time_table">
+			<div class="station_name">穴の川</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_56_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_56_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="57" class="time_table">
+			<div class="station_name">藤の沢</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_57_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_57_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="58" class="time_table">
+			<div class="station_name">藤野中央</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_58_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_58_up">緑苑台・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="59" class="time_table">
+			<div class="station_name">下藤野</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_59_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_59_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="60" class="time_table">
+			<div class="station_name">簾舞</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_60_down">簾舞四区・定山渓方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_60_up">緑苑台・新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="61" class="time_table">
+			<div class="station_name">簾舞四区</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_61_down">定山渓・豊滝方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_61_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="62" class="time_table">
+			<div class="station_name">豊滝</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_62_down">定山渓・豊平峡方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_62_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="63" class="time_table">
+			<div class="station_name">小金湯</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_63_down">定山渓・豊平峡方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_63_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="64" class="time_table">
+			<div class="station_name">錦橋</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_64_down">定山渓・豊平峡方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_64_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="65" class="time_table">
+			<div class="station_name">温泉西</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_65_down">定山渓・豊平峡方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_65_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="66" class="time_table">
+			<div class="station_name">定山渓</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_66_down">豊平峡方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_66_up">新港中央・緑苑台方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="67" class="time_table">
+			<div class="station_name">七区</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_67_down">豊平峡方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_67_up">新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="70" class="time_table">
+			<div class="station_name">南中の島</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_70_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_70_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="71" class="time_table">
+			<div class="station_name">平岸中央</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_71_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_71_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="72" class="time_table">
+			<div class="station_name">月寒公園</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_72_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_72_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="73" class="time_table">
+			<div class="station_name">月寒北</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_73_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_73_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="74" class="time_table">
+			<div class="station_name">南郷</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_74_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_74_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="75" class="time_table">
+			<div class="station_name">本通</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_75_down">中沼・西白石方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_75_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="76" class="time_table">
+			<div class="station_name">西白石</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_76_down">中沼・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_76_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="77" class="time_table">
+			<div class="station_name">菊水元町</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_77_down">中沼・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_77_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="78" class="time_table">
+			<div class="station_name">米里</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_78_down">中沼・南中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_78_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="79" class="time_table">
+			<div class="station_name">南中沼</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_79_down">中沼方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_30_up">南烈々布・茨戸方面</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_79_up">南烈々布・花川中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="68" class="time_table">
+			<div class="station_name">豊平峡</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_68_up">新港中央方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="80" class="time_table">
+			<div class="station_name">中沼</div>
+			<table class="table_base">
+				<tr>
+					<td class="time_index">
+						
+					</td>
+				</tr>
+				<tr>
+					<td class="time">
+						<a href="rd.html?sel=STT_dia_80_up">花川中央・山鼻方面</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	<br>この時刻表はOuOrario V001.002を使用して生成しています。<a href="https://surugaexpress.web.fc2.com/X7_freeSoft/ouorario/ouorario.html">詳細</a></body>
+</html>
